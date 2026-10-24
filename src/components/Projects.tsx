@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, BookOpen, Code2, ExternalLink, Play, Ruler } from "lucide-react";
 import { projects } from "@/data/config";
 import SectionHeading from "./SectionHeading";
 
@@ -6,23 +6,52 @@ export default function Projects() {
   return (
     <section id="projects" className="container-mono py-24 md:py-32">
       <SectionHeading
-        eyebrow="Selected work"
-        title="Projects"
-        description="A small selection of things I've built recently."
+        eyebrow="Engineering portfolio"
+        title="Robotics projects"
+        description="From first sketches and CAD to embedded code, testing, and the videos and notes that show how each build works."
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((p) => (
           <article
             key={p.title}
-            className="reveal group flex flex-col rounded-lg border border-border bg-card overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-foreground/40"
+            className="reveal flex flex-col rounded-lg border border-border bg-card overflow-hidden"
           >
-            <div className="aspect-[16/10] overflow-hidden bg-muted">
-              <img
-                src={p.image}
-                alt={`${p.title} preview`}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+            <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+              {p.video ? (
+                /(?:youtube\.com\/embed\/|youtu\.be\/)/i.test(p.video) ? (
+                  <iframe
+                    className="h-full w-full"
+                    src={p.video.replace(
+                      /(?:https?:\/\/)?(?:www\.)?youtu\.be\/([^?&/]+)|(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([^?&/]+)/i,
+                      (_match, shortId: string | undefined, embedId: string | undefined) =>
+                        `https://www.youtube.com/embed/${shortId ?? embedId}`,
+                    )}
+                    title={`${p.title} project video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                ) : (
+                <video
+                  className="h-full w-full object-cover"
+                  src={p.video}
+                  poster={p.poster}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label={`${p.title} project video`}
+                />
+                )
+              ) : (
+                <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
+                  <Play className="h-8 w-8" />
+                  <span className="text-xs">Add a project video</span>
+                </div>
+              )}
+              {p.category && (
+                <span className="absolute left-3 top-3 rounded-full border border-border/70 bg-background/90 px-2.5 py-1 text-[11px] font-medium backdrop-blur">
+                  {p.category}
+                </span>
+              )}
             </div>
             <div className="flex flex-col flex-1 p-5">
               <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
@@ -39,23 +68,17 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-4 text-sm">
-                <a
-                  href={p.demo}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-1 hover:text-muted-foreground transition-colors"
-                >
-                  Live <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="h-3.5 w-3.5" /> Code
-                </a>
+              <div className="mt-auto flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-4 text-sm">
+                {p.links.map(({ label, href, type }) => {
+                  const Icon = type === "video" ? Play : type === "design" ? Ruler : type === "docs" ? BookOpen : type === "code" ? Code2 : ExternalLink;
+                  return (
+                    <a key={label} href={href} target="_blank" rel="noreferrer noopener"
+                      className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground">
+                      <Icon className="h-3.5 w-3.5" /> {label}
+                      <ArrowUpRight className="h-3 w-3 opacity-60" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </article>

@@ -1,5 +1,5 @@
-import { ArrowDownToLine, Mail } from "lucide-react";
-import { site } from "@/data/config";
+import { ArrowDownToLine } from "lucide-react";
+import { site, socials } from "@/data/config";
 
 export default function Hero() {
   return (
@@ -17,14 +17,7 @@ export default function Hero() {
       <p className="reveal max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed mb-10">
         {site.bio}
       </p>
-      <div className="reveal flex flex-wrap gap-3">
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 h-11 px-5 rounded-md bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          <Mail className="h-4 w-4" />
-          Get in touch
-        </a>
+      <div className="reveal flex flex-wrap items-center gap-3">
         <a
           href={site.cvUrl}
           download
@@ -33,6 +26,21 @@ export default function Hero() {
           <ArrowDownToLine className="h-4 w-4" />
           Download CV
         </a>
+
+        <div className="flex items-center gap-2">
+          {socials.map(({ name, href, Icon }) => (
+            <a
+              key={name}
+              href={href}
+              aria-label={name}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="h-9 w-9 inline-flex items-center justify-center rounded-md border border-border text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+            >
+              <Icon className="h-4 w-4" />
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

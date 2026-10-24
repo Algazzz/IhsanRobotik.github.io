@@ -19,7 +19,12 @@ export default function About() {
           <div>
             <dt className="text-muted-foreground">Email</dt>
             <dd className="font-medium">
-              <a href={`mailto:${site.email}`} className="hover:underline underline-offset-4">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=ihsanfadilah980@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline underline-offset-4"
+              >
                 {site.email}
               </a>
             </dd>
