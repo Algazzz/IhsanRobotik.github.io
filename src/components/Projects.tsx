@@ -47,11 +47,6 @@ export default function Projects() {
                   <span className="text-xs">Add a project video</span>
                 </div>
               )}
-              {p.category && (
-                <span className="rb-bg-soft rb-text absolute left-3 top-3 rounded-full border rb-border bg-background/90 px-2.5 py-1 text-[11px] font-semibold backdrop-blur">
-                  {p.category}
-                </span>
-              )}
             </div>
             <div className="flex flex-col flex-1 p-5">
               <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
