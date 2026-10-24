@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Minimal Mono — Developer Portfolio Template
 
 A clean, open-source portfolio template for developers. Built with **React + Vite + Tailwind CSS**. Dark by default with a one-tap light mode, fully responsive, scroll-reveal animations, and a single config file to make it yours in minutes.
@@ -152,3 +153,6 @@ public/
 - Fonts: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) + [Inter](https://fonts.google.com/specimen/Inter)
 
 If you ship a site with this template, a link back to the repo is a lovely gesture 💜
+=======
+# IhsanRobotik.github.io
+>>>>>>> 24df9426445e5375137abe3c6958383f70a571ce
