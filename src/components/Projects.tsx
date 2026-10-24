@@ -6,9 +6,9 @@ export default function Projects() {
   return (
     <section id="projects" className="container-mono py-24 md:py-32">
       <SectionHeading
-        eyebrow="Engineering portfolio"
-        title="Robotics projects"
-        description="From first sketches and CAD to embedded code, testing, and the videos and notes that show how each build works."
+        eyebrow=" "
+        title="Recent Works"
+        description="Recent Works LMAO."
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((p) => (

@@ -54,7 +54,7 @@ export const projects: Project[] = [
   {
     title: "Mobile Robot Platform",
     category: "Robotics · Mechanical + Embedded",
-    description: "A mobile robotics build covering chassis design, electronics integration, and the control software. Add a concise note about the goal, your contribution, and the result.",
+    description: "lorem ipsum kontol.",
     tags: ["CAD", "Embedded C++", "Motor control"],
     video: "https://www.youtube.com/embed/PzbiDPRk3jw",
     links: [
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   {
     title: "Robotic Arm & Gripper",
     category: "Robotics · Mechanism + Control",
-    description: "A mechanism and control project. Describe the design constraints, actuator and sensor choices, and how you evaluated its motion or task performance.",
+    description: "hehe.",
     tags: ["SolidWorks", "Kinematics", "Arduino"],
     video: "",
     links: [
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   {
     title: "Embedded Control System",
     category: "Embedded · Firmware + Electronics",
-    description: "A focused electronics and firmware project. Explain the system architecture, key implementation details, and what you learned from bench or field testing.",
+    description: "mom.",
     tags: ["KiCad", "Python", "Linux"],
     video: "",
     links: [
